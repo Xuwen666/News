@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-05-29 16:47:28
+ * @version $Id$
+ */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.form-group {
+  overflow: hidden !important;
+}
+/* 自定义表单样式 在1200分辨率上 */
+@media all and (min-width: 1200px) {
+  .container {
+    width: 600px;
+    margin-top: 150px;
+  }
+  .container .form-group {
+    margin-bottom: 40px;
+  }
+}
+/* 自定义表单样式 在768分辨率上 */
+@media all and (max-width: 768px) {
+  .container {
+    margin-top: 40px;
+  }
+}

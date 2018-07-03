@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body,ul{
+		margin: 0;
+		padding: 0;
+	}
+	.clear:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+	ul{
+		position:fixed;
+		top: 0;
+		left: 0;
+	}
+	a{
+		text-decoration: none;
+		color: white;
+	}
+	li.active{
+		background-color: blue;
+	}
+	li{
+		list-style: none;
+		float: left;
+		width: 60px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background-color: yellowgreen;
+	}
+	h1{
+		margin-bottom: 1000px;
+		margin-top: 0;
+	}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+
+		var li=document.querySelectorAll('li');
+		var h1=document.querySelectorAll('h1');
+		var Id='';
+		for(var i=0;i<li.length;i++){
+			li[i].onclick=function(){
+				cleaLI();
+				this.className='active';
+				Id='';
+				Id=this.children[0].id;
+				console.log(this.children[0].id)
+				for(var j=0;j<h1.length;j++){
+					
+				
+					if(h1[j].dataset.id==Id){
+						console.log(h1[j])
+							console.log(h1[j].getBoundingClientRect().top)
+						document.documentElement.scrollTop=h1[j].getBoundingClientRect().top+document.documentElement.scrollTop;
+
+					}
+				}
+				
+			}
+		}
+
+		/*封装清空锁有li的类*/
+		function cleaLI(){
+			for(var i=0;i<li.length;i++){
+				li[i].className='';
+			}	
+		}
+
+/*给每一个li添加 自定义属性 遍历所有的li绑定点击事件  遍历所有的a 判断当前点击的自定义属性与 a的自定义属性是否相等,相等的scrolltop就到当前元素的top位置
+可视区加上滚动距离》a的top
+
+*/
+		window.onscroll=function(){
+			for(var i=0;i<h1.length;i++){
+				h1[i].index=i;
+
+				var Scrotop=document.documentElement.scrollTop;
+				var hHeight=h1[i].getBoundingClientRect().top;
+				var Target=hHeight-Scrotop;
+				console.log(Scrotop)
+				console.log(hHeight)
+				var Index=h1[i].index;
+					console.log(Index)
+				if(Target<=0){
+
+					cleaLI();
+
+					for(var j=0;j<li.length;j++){
+						li[Index].className='active';
+
+					}
+				}
+				
+			}
+		}
+	}
+</script>
+</head>
+<body>
+    <ul class="clear">
+    	<li><a href="" id="one">标题一</a></li>
+    	<li><a href="" id="two">标题二</a></li>
+    	<li><a href="" id="tree">标贴三</a></li>
+    </ul>
+    <h1 data-id="one">1111111111111111111111111111</h1>
+    <h1 data-id="two">22222222222222222222222222222</h1>
+    <h1 data-id="tree">3333333333333333333333</h1>
+</body>
+</html>

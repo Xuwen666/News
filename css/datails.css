@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-06-01 15:59:22
+ * @version $Id$
+ */
+img {
+  max-width: 900px !important;
+}
+.container h4 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 40px;
+}
+.container h4 span {
+  float: right;
+}
+.container .contetnt {
+  min-height: 500px;
+}
+.comments {
+  padding-left: 20px;
+}
+h3 {
+  margin-bottom: 10px;
+  color: #337ab7;
+}
+.List {
+  margin-top: 50px;
+  padding-left: 20px;
+  border-radius: 10px;
+  width: 600px;
+}
+.List nav .pagination {
+  height: 34px !important;
+}
+.List dl {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+.List dl dd {
+  float: left;
+}
+.List dl .t {
+  float: right;
+  padding-right: 100px;
+}
+.List button {
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+.Nav {
+  list-style: none;
+  float: left;
+}
+.Nav li {
+  float: left;
+}
+.Nav li a {
+  width: 52px;
+  height: 34px;
+  display: block;
+  text-align: center;
+  line-height: 34px;
+  text-decoration: underline;
+}
+.Nav li a:hover {
+  color: green;
+}
+.Nav li a.active {
+  color: red;
+}

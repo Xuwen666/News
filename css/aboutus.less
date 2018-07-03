@@ -1,0 +1,103 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-05-29 20:52:54
+ * @version $Id$
+ */
+p{
+	color: #5c5c5d;
+	line-height: 30px;
+}
+
+/* 主体内容	 */
+#contetn{
+	#myScrollspy{
+		ul{
+			width: 212px;
+			
+				top: 30px; /* Set the top position of pinned element */
+			
+		}
+		li{
+			border-bottom: 1px solid #939393;
+			&.active{
+				a{
+					background-color: #069;
+					color: white;
+				}
+			}
+			a{
+				padding: 20px 20px;
+
+			}
+		}
+		& li:nth-of-type(1){
+				a{
+					border: none !important;
+				}
+				
+			}
+
+	}
+	.panel-heading{
+				color: #069;
+				padding: 20px 15px;
+				font-size: 18px;
+				background-color: transparent !important;
+			}
+
+	.col-xs-9{
+		.about{
+			p{
+				text-indent: 2em;
+				
+				
+				margin-bottom: 20px;
+			}
+		}
+		.media-heading{
+				color: #069;
+				margin-bottom: 15px;
+			}
+			.media-body{
+				padding-left: 10px;
+			}
+		.contact{
+			.media-heading{
+				.media-heading
+			}
+			.media-body{
+			.media-body
+			}
+		}
+		.report{
+			.media-heading{
+				.media-heading
+				
+			}
+			.media-body{
+				.media-body
+			}
+		}
+	}
+}
+
+/* 移动端下展示 */
+@media all and(max-width: 998px){
+	.media{
+		.media-left{
+			display: block;
+			img{
+				width: 100%;
+			}
+		}
+		.media-body{
+			h4{
+				padding: 10px 0;
+				color: #069;
+			}
+		
+		}
+	}
+}

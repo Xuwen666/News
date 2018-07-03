@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>登录页</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="" rel="stylesheet">
+<link rel="shortcut icon" type="text/css" href="img/icon.png">
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/public.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+     <div class="hidden-xs clearfix" id="header">
+      <ul class="list-unstyled  list-inline">
+        <li><a href="" class="active">新闻</a></li>
+
+      </ul>
+
+    </div>
+    <nav class="navbar navbar-default clearfix"  id="nav">
+             <div class="container-fluid">
+             <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">
+                      <img src="img/logo.png">
+                  </a>
+             </div>
+            <div id="login">
+                <span class="glyphicon glyphicon-user"></span>
+            </div> 
+            <!-- 登录 -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="schedule.html">赛程</a></li>
+                    <li><a href="activity.html">活动</a></li>
+                    <li><a href="aboutus.html">关于我们</a></li>
+                </ul>
+                 <ul class="nav navbar-nav navbar-right " id="hiddenMenua">
+                   <li class="exit">
+                    <span class="glyphicon glyphicon-user">  </span>
+                       <em>退出</em>
+                   </li>
+                    <li class="clearfix login"><span class="glyphicon glyphicon-plus"></span><a href="login.html">登录</a></li>
+                    <li class="register"><span class="glyphicon glyphicon-user
+"></span><a href="register.html">注册</a></li>
+                </ul>
+            </div>
+        </div>
+     </nav>
+
+	
+	<!-- 登录面板 -->
+	<div class="container">
+			<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">登录网站</h3>
+		</div>
+		<div class="panel-body">
+			
+				<div class="form-group">
+					<label for="username" class="col-sm-2 control-label">用户名</label>
+					<div class="col-sm-10">
+						<input type="text" name="username" id="username" placeholder="用户名" class="form-control username">
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="password" class="col-sm-2 control-label">密码</label>
+					<div class="col-sm-10">
+						<input type="password" name="password" id="password" placeholder="密码" class="form-control password">
+					</div>
+				</div>
+				<button class="btn btn-block btn-primary">点击登录</button>
+			
+		</div>
+	</div>
+	</div>
+
+
+      <nav class="sidebar hidden-sm hidden-xs">
+        <li><a href="#">吐槽</a></li>
+        <li><a href="#">爆料</a></li>
+        <li><a href="#">投稿</a></li>
+        <li class="active"><a href="javascript:;" class="scrolltop"><span class="glyphicon glyphicon-triangle-top"></span></a></li>
+    </nav>
+    <!-- 侧边导航条 -->
+
+    <div class="container-fluid footer">
+        <div class="info">
+            <img src="img/logo.png">
+            <ul class="clearfix">
+                <li><a href="">关于我们</a></li>
+                <li><a href="">加入我们</a></li>
+                <li><a href="">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="copy">
+            <p>
+        ©2006-2018 畅游版权所有
+        <i>|</i>
+        粤ICP备 06060606
+        <i>|</i>
+        增值电信业务经营许可证：粤 C1-2016110033
+        
+    </p>
+        </div>
+    </div>
+    <!-- 底部版权 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript">
+         $('.btn').click(function(){
+            $.ajax({
+            url:'guestbook/index.php',  
+            data:'m=index&a=login&username='+$('.username').val()+'&password='+$('.password').val(), 
+            type:'POST',
+            dataType:"json",
+            success:function(data){
+                alert(data.message);
+                $('.username').val('');
+                $('.password').val('');
+                if(!data.code){
+                    updateUserStatus();
+                }
+              
+            }
+            
+            }) 
+        })
+          $('.exit em').click(function(){
+    
+           $.ajax({
+            url:'guestbook/index.php',  
+            data:'m=index&a=logout', 
+            type:'POST',
+            dataType:"json",
+            success:function(data){
+               alert(data.message);
+               if(!data.code){
+                 updateUserStatus();
+               }
+               return false;
+            }
+            
+            }) 
+        })
+         updateUserStatus();
+          function updateUserStatus(){
+                var uid=getCookie('uid');
+                var username=getCookie('username');
+                console.log(typeof username)
+            if(uid){
+            // 登录成功状态
+           
+              $('.exit').css('display','block');
+            $('.exit span').html(username)
+                $('.login').css('display','none');
+                $('.register').css('display','none');
+            }
+            else {
+                $('.exit').css('display','none');
+                $('.login').css('display','block');
+                $('.register').css('display','block');
+            }
+          }
+          
+        function getCookie(key){
+            var arr1=document.cookie.split('; ');
+            for(var i=0;i<arr1.length;i++){
+                console.log(arr1[i]);
+                var arr2=arr1[i].split('=');
+                if(arr2[0]==key){
+                    return arr2[1];
+                }
+
+            }
+        }
+    </script>
+   
+     
+</body>
+</html>

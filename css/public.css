@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-05-11 10:15:16
+ * @version $Id$
+ */
+/* 公共样式  start*/
+a:link,
+a:visited {
+  color: #252525;
+}
+a:hover {
+  text-decoration: none;
+  color: #337ab7;
+}
+.exit {
+  display: none;
+  cursor: pointer;
+}
+.exit span {
+  padding-right: 10px;
+  cursor: pointer;
+}
+.exit em {
+  font-style: normal;
+}
+.exit em:hover {
+  color: green;
+}
+#header {
+  background-color: #333;
+  height: 45px;
+  line-height: 45px;
+}
+#header a {
+  color: white;
+}
+#header a.active {
+  color: #b6b5b5;
+}
+#header a:link,
+#header a:visited {
+  color: white;
+}
+#header a:hover,
+#header a:active {
+  color: #119adf;
+}
+#header .list-inline > li {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#header ul:nth-of-type(1) {
+  padding-left: 35px;
+}
+#nav {
+  height: 65px;
+  background-color: white;
+  min-height: 65px;
+}
+#nav .container-fluid {
+  height: 65px;
+  line-height: 65px;
+}
+#nav .container-fluid .navbar-brand {
+  padding-left: 211px;
+  padding-right: 27px;
+  padding-top: 10px;
+  height: 63px;
+  line-height: 63px;
+}
+#nav .container-fluid #login {
+  display: none;
+}
+#nav .container-fluid .navbar-nav {
+  margin-top: 0;
+}
+#nav .container-fluid .navbar-nav a {
+  color: #333;
+  font-size: 14px;
+  background-color: white;
+  padding-top: 21px;
+}
+#nav .container-fluid .navbar-nav a:hover {
+  color: #006699;
+}
+#nav .container-fluid .navbar-nav li.active a {
+  color: #006699;
+}
+#nav .container-fluid .navbar-right span {
+  float: left;
+  top: 22px;
+}
+#nav .container-fluid .navbar-right a {
+  float: left;
+}
+/* 侧边栏 */
+.sidebar {
+  position: fixed;
+  right: 350px;
+  opacity: 0;
+  bottom: 30px;
+  transition: 1s opacity linear;
+  height: 230px;
+  z-index: 200 !important;
+}
+.sidebar li {
+  list-style: none;
+}
+.sidebar li a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  color: #666666;
+  text-align: center;
+  border: 1px solid #c9c9c9;
+  margin-bottom: 10px;
+}
+.sidebar li a:hover {
+  background-color: #006699;
+  color: white;
+  transition: 0.5s background-color;
+}
+.sidebar li a.scrolltop {
+  margin-bottom: 0;
+}
+.sidebar li.active {
+  background-color: #006699;
+}
+.sidebar li.active span {
+  color: white;
+}
+/* 侧边栏 end */
+/* 封装1024宽度 栅格系统宽度计算*/
+/* 媒体查询 */
+@media (min-width: 1200px) {
+  .container {
+    width: 1024px;
+  }
+}
+.footer {
+  padding: 0;
+  margin-top: 144px;
+  background-color: #414141;
+  text-align: center;
+  padding-top: 30px;
+}
+.footer .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.footer .info ul {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+}
+.footer .info ul li {
+  list-style-type: none;
+  float: left;
+  margin-right: 24px;
+}
+.footer .info ul li a {
+  color: #C5C5C5;
+}
+.footer .info ul li a:hover {
+  color: #acabab;
+}
+.footer .info ul li:last-of-type {
+  margin-right: 0;
+}
+.footer .copy {
+  margin-top: 10px;
+  background-color: #262424;
+  color: #868585;
+  text-align: center;
+  font-size: 12px;
+  padding: 26px;
+}
+/* 公共样式 end */
+/* 媒体查询 start */
+@media all and (max-width: 768px) {
+  #nav .container-fluid {
+    position: relative;
+  }
+  #nav .navbar-header {
+    display: flex;
+    justify-content: center;
+  }
+  #nav .navbar-header button {
+    position: absolute;
+    right: 0;
+  }
+  #nav .navbar-brand {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  #nav #hiddenMenua {
+    display: none;
+  }
+  #nav #login {
+    display: block !important;
+    position: absolute;
+    left: 30px;
+    top: 0px;
+  }
+  #nav #login span {
+    font-size: 16px;
+  }
+  #nav #bs-example-navbar-collapse-1 {
+    z-index: 9999;
+  }
+  #nav #bs-example-navbar-collapse-1 ul {
+    z-index: 9999;
+  }
+  #nav #bs-example-navbar-collapse-1 ul li {
+    z-index: 9999;
+    background-color: #006395;
+  }
+  #nav #bs-example-navbar-collapse-1 ul li a {
+    background-color: transparent;
+    color: white;
+  }
+  #nav #bs-example-navbar-collapse-1 ul li a:active {
+    color: #333;
+  }
+  .footer {
+    margin-top: 30px;
+  }
+}
+/* 媒体查询 end */
